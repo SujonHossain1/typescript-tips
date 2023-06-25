@@ -1,0 +1,15 @@
+{
+  "editor.tokenColorCustomizations": {
+    "[Andromeda Colorizer], [Andromeda Bordered]": {
+      "textMateRules": [
+        {
+          "scope": "comment",
+          "settings": {
+            // "foreground": "#6a737d",
+            "fontStyle": ""
+          }
+        }
+      ]
+    }
+  }
+}
