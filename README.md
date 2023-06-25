@@ -66,6 +66,6 @@ Go to **[Coding Exercise](https://playcode.io/typescript)** for coding specific 
    }
    ```
 
-   **[[Code of Tips 1]](https://github.com/SujonHossain1/typescript-tips/Tips-1.ts) [[🧑🏻‍💻 Coding Playground]](https://playcode.io/typescript)**
+   **[[Code of Tips 1]](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-1.ts) [[🧑🏻‍💻 Coding Playground]](https://playcode.io/typescript)**
 
    **[⬆ Back to Top](#table-of-contents)**
