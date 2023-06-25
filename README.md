@@ -1,6 +1,6 @@
 # TypeScript Tips
 
-Click :star:if you like the tips. Follow **[TypeScript Tips](https://facebook.com/TypeScriptTips/)** for updates.
+Click :star: if you like the tips. Follow **[TypeScript Tips](https://facebook.com/TypeScriptTips/)** for updates.
 Go to **[Coding Exercise](https://playcode.io/typescript)** for coding specific tips **(Reset Editor before starting)**
 
 ### Table of Contents
