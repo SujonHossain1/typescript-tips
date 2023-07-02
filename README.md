@@ -5,10 +5,10 @@ Go to **[Coding Exercise](https://playcode.io/typescript)** for coding specific 
 
 ### Table of Contents
 
-| No. | Tips                                                              |
-| --- | ----------------------------------------------------------------- |
-| 1   | [Type Annotations and Inference](#type-annotations-and-inference) |
-|     |
+| No. | Tips                                                                                                                                          | Code                                                                         |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| 1   | [Type Annotations and Inference](#type-annotations-and-inference)                                                                             | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-1.ts) |
+| 2   | [Take advantage of union types to create flexible and expressive code](#take-advantage-of-union-types-to-create-flexible-and-expressive-code) | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-2.ts) |
 
 1. ### Type Annotations and Inference
 
@@ -67,5 +67,53 @@ Go to **[Coding Exercise](https://playcode.io/typescript)** for coding specific 
    ```
 
    **[[Code of Tips 1]](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-1.ts) [[🧑🏻‍💻 Coding Playground]](https://playcode.io/typescript)**
+
+   **[⬆ Back to Top](#table-of-contents)**
+
+2. ### Take advantage of union types to create flexible and expressive code.
+
+   1. **Example 1: Union of number and string**
+
+   ```ts
+   function displayResult(result: number | string): void {
+     console.log(result);
+   }
+
+   displayResult(10); // Output: 10
+   displayResult('Error'); // Output: Error
+   ```
+
+   2. **Example 2: Union with type guards**
+
+   ```ts
+   function printValue(value: string | number): void {
+     if (typeof value === 'string') {
+       console.log('String value:', value.toUpperCase());
+     } else if (typeof value === 'number') {
+       console.log('Numeric value:', value.toFixed(2));
+     } else {
+       console.log('Invalid value!');
+     }
+   }
+
+   printValue('hello'); // Output: String value: HELLO
+   printValue(3.14159); // Output: Numeric value: 3.14
+   printValue(true); // Output: Invalid value!
+   ```
+
+   2. **Example 3: Union with type aliases**
+
+   ```ts
+   type Shape = 'circle' | 'square' | 'triangle';
+
+   function draw(shape: Shape): void {
+     console.log('Drawing', shape);
+   }
+
+   draw('circle'); // Output: Drawing circle
+   draw('rectangle'); // Error: Argument of type 'rectangle' is not assignable to parameter of type 'Shape'
+   ```
+
+   **[[Code of Tips 2]](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-2.ts) [[🧑🏻‍💻 Coding Playground]](https://playcode.io/typescript)**
 
    **[⬆ Back to Top](#table-of-contents)**
