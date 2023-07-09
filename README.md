@@ -9,6 +9,7 @@ Go to **[Coding Exercise](https://playcode.io/typescript)** for coding specific 
 | --- | --------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | 1   | [Type Annotations and Inference](#type-annotations-and-inference)                                                                             | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-1.ts) |
 | 2   | [Take advantage of union types to create flexible and expressive code](#take-advantage-of-union-types-to-create-flexible-and-expressive-code) | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-2.ts) |
+| 3   | [Use intersection types to combine multiple types into a single type](#use-intersection-types-to-combine-multiple-types-into-a-single-type)   | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-3.ts) |
 
 1. ### Type Annotations and Inference
 
@@ -117,3 +118,33 @@ Go to **[Coding Exercise](https://playcode.io/typescript)** for coding specific 
    **[[Code of Tips 2]](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-2.ts) [[🧑🏻‍💻 Coding Playground]](https://playcode.io/typescript)**
 
    **[⬆ Back to Top](#table-of-contents)**
+
+3. ### Use intersection types to combine multiple types into a single type.
+
+   ✅ **TypeScript Intersection**
+
+   ```ts
+   type Person = {
+     name: string;
+     age: number;
+   };
+
+   type Employee = {
+     id: number;
+     department: string;
+   };
+
+   // We can create a new type, PersonWithEmployeeInfo, by intersecting Person and Employee types.
+   type PersonWithEmployeeInfo = Person & Employee;
+
+   // Usage:
+   const employee: PersonWithEmployeeInfo = {
+     name: 'John Doe',
+     age: 30,
+     id: 12345,
+     department: 'IT',
+   };
+
+   console.log(employee.name); // Output: John Doe
+   console.log(employee.department); // Output: IT
+   ```
