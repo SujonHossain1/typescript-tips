@@ -5,11 +5,12 @@ Go to **[Coding Exercise](https://playcode.io/typescript)** for coding specific 
 
 ### Table of Contents
 
-| No. | Tips                                                                                                                                          | Code                                                                         |
-| --- | --------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| 1   | [Type Annotations and Inference](#type-annotations-and-inference)                                                                             | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-1.ts) |
-| 2   | [Take advantage of union types to create flexible and expressive code](#take-advantage-of-union-types-to-create-flexible-and-expressive-code) | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-2.ts) |
-| 3   | [Use intersection types to combine multiple types into a single type](#use-intersection-types-to-combine-multiple-types-into-a-single-type)   | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-3.ts) |
+| No. | Tips                                                                                                                                                                              | Code                                                                         |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| 1   | [Type Annotations and Inference](#type-annotations-and-inference)                                                                                                                 | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-1.ts) |
+| 2   | [Take advantage of union types to create flexible and expressive code](#take-advantage-of-union-types-to-create-flexible-and-expressive-code)                                     | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-2.ts) |
+| 3   | [Use intersection types to combine multiple types into a single type](#use-intersection-types-to-combine-multiple-types-into-a-single-type)                                       | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-3.ts) |
+| 4   | [Utilize the unknown type for variables with uncertain or dynamically determined values](#utilize-the-unknown-type-for-variables-with-uncertain-or-dynamically-determined-values) | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-4.ts) |
 
 1. ### Type Annotations and Inference
 
@@ -147,4 +148,27 @@ Go to **[Coding Exercise](https://playcode.io/typescript)** for coding specific 
 
    console.log(employee.name); // Output: John Doe
    console.log(employee.department); // Output: IT
+   ```
+
+4. ### Utilize the unknown type for variables with uncertain or dynamically determined values.
+
+   ✅ **TypeScript Unknown**
+
+   ```ts
+   function processInput(input: unknown): void {
+     if (typeof input === 'string') {
+       // Perform string related operations on 'input'
+       console.log(input.toUpperCase());
+     } else if (Array.isArray(input)) {
+       // Process 'input' as an array
+       console.log(input.length);
+     } else {
+       // Handle other cases
+       console.log('Unknown type');
+     }
+   }
+
+   processInput('Hello, TypeScript!'); // Output: HELLO, TYPESCRIPT!
+   processInput([1, 2, 3, 4, 5]); // Output: 5
+   processInput({ name: 'TypeScript Tips' }); // Output: Unknown type
    ```
