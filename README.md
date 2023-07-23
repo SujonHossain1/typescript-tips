@@ -5,12 +5,13 @@ Go to **[Coding Exercise](https://playcode.io/typescript)** for coding specific 
 
 ### Table of Contents
 
-| No. | Tips                                                                                                                                                                              | Code                                                                         |
-| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| 1   | [Type Annotations and Inference](#type-annotations-and-inference)                                                                                                                 | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-1.ts) |
-| 2   | [Take advantage of union types to create flexible and expressive code](#take-advantage-of-union-types-to-create-flexible-and-expressive-code)                                     | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-2.ts) |
-| 3   | [Use intersection types to combine multiple types into a single type](#use-intersection-types-to-combine-multiple-types-into-a-single-type)                                       | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-3.ts) |
-| 4   | [Utilize the unknown type for variables with uncertain or dynamically determined values](#utilize-the-unknown-type-for-variables-with-uncertain-or-dynamically-determined-values) | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-4.ts) |
+| No. | Tips                                                                                                                                                                                                                        | Code                                                                         |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| 1   | [Type Annotations and Inference](#type-annotations-and-inference)                                                                                                                                                           | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-1.ts) |
+| 2   | [Take advantage of union types to create flexible and expressive code](#take-advantage-of-union-types-to-create-flexible-and-expressive-code)                                                                               | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-2.ts) |
+| 3   | [Use intersection types to combine multiple types into a single type](#use-intersection-types-to-combine-multiple-types-into-a-single-type)                                                                                 | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-3.ts) |
+| 4   | [Utilize the unknown type for variables with uncertain or dynamically determined values](#utilize-the-unknown-type-for-variables-with-uncertain-or-dynamically-determined-values)                                           | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-4.ts) |
+| 5   | [Leverage the 'keyof' operator to work with object keys as types and access object property names dynamically](#leverage-the-keyof-operator-to-work-with-object-keys-as-types-and-access-object-property-names-dynamically) | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-5.ts) |
 
 1. ### Type Annotations and Inference
 
@@ -171,4 +172,31 @@ Go to **[Coding Exercise](https://playcode.io/typescript)** for coding specific 
    processInput('Hello, TypeScript!'); // Output: HELLO, TYPESCRIPT!
    processInput([1, 2, 3, 4, 5]); // Output: 5
    processInput({ name: 'TypeScript Tips' }); // Output: Unknown type
+   ```
+
+5. ### Leverage the 'keyof' operator to work with object keys as types and access object property names dynamically.
+
+   ✅ **TypeScript keyof**
+
+   ```ts
+   interface Person {
+     name: string;
+     age: number;
+     email: string;
+   }
+
+   type PersonKey = keyof Person; // This will be a union type: 'name' | 'age' | 'email'
+
+   function getProperty(obj: Person, key: PersonKey): unknown {
+     return obj[key];
+   }
+
+   const person: Person = {
+     name: 'John Doe',
+     age: 30,
+     email: 'john@example.com',
+   };
+
+   const propertyName: PersonKey = 'name';
+   const propertyValue = getProperty(person, propertyName); // propertyValue will be 'John Doe'
    ```
