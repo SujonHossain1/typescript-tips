@@ -1,5 +1,5 @@
 /**
- * ✅ Topic: Leverage the 'keyof' operator to work with object keys as types and access object property names dynamically.
+ * ✅ Topic: The 'keyof' operator to work with object keys as types and access object property names dynamically.
  */
 
 // Example:

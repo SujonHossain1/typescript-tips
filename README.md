@@ -12,6 +12,7 @@ Go to **[Coding Exercise](https://playcode.io/typescript)** for coding specific 
 | 3   | [Use intersection types to combine multiple types into a single type](#use-intersection-types-to-combine-multiple-types-into-a-single-type)                                                                                 | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-3.ts) |
 | 4   | [Utilize the unknown type for variables with uncertain or dynamically determined values](#utilize-the-unknown-type-for-variables-with-uncertain-or-dynamically-determined-values)                                           | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-4.ts) |
 | 5   | [Leverage the 'keyof' operator to work with object keys as types and access object property names dynamically](#leverage-the-keyof-operator-to-work-with-object-keys-as-types-and-access-object-property-names-dynamically) | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-5.ts) |
+| 6   | [Embrace the power of generics to write flexible and reusable code in TypeScript](#Embrace-the-power-of-generics-to-write-flexible-and-reusable-code-in-TypeScript)                                                         | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-6.ts) |
 
 1. ### Type Annotations and Inference
 
@@ -199,4 +200,31 @@ Go to **[Coding Exercise](https://playcode.io/typescript)** for coding specific 
 
    const propertyName: PersonKey = 'name';
    const propertyValue = getProperty(person, propertyName); // propertyValue will be 'John Doe'
+   ```
+
+6. ### Embrace the power of generics to write flexible and reusable code in TypeScript.
+
+   ✅ **Creating a generic function**
+
+   ```ts
+   function reverseArray<T>(array: T[]): T[] {
+     return array.reverse();
+   }
+
+   const numbers = [1, 2, 3, 4, 5];
+   const reversedNumbers = reverseArray(numbers); // reversedNumbers will be [5, 4, 3, 2, 1]
+
+   const names = ['Alice', 'Bob', 'Charlie'];
+   const reversedNames = reverseArray(names); // reversedNames will be ['Charlie', 'Bob', 'Alice']
+   ```
+
+   ✅ **Creating a generic function**
+
+   ```ts
+   interface Box<T> {
+     value: T;
+   }
+
+   const numberBox: Box<number> = { value: 42 }; // numberBox.value will be 42
+   const stringBox: Box<string> = { value: 'Hello, TypeScript!' }; // stringBox.value will be 'Hello, TypeScript!'
    ```
