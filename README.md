@@ -12,7 +12,9 @@ Go to **[Coding Exercise](https://playcode.io/typescript)** for coding specific 
 | 3   | [Use intersection types to combine multiple types into a single type](#use-intersection-types-to-combine-multiple-types-into-a-single-type)                                                                                 | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-3.ts) |
 | 4   | [Utilize the unknown type for variables with uncertain or dynamically determined values](#utilize-the-unknown-type-for-variables-with-uncertain-or-dynamically-determined-values)                                           | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-4.ts) |
 | 5   | [Leverage the 'keyof' operator to work with object keys as types and access object property names dynamically](#leverage-the-keyof-operator-to-work-with-object-keys-as-types-and-access-object-property-names-dynamically) | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-5.ts) |
-| 6   | [Embrace the power of generics to write flexible and reusable code in TypeScript](#Embrace-the-power-of-generics-to-write-flexible-and-reusable-code-in-TypeScript)                                                         | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-6.ts) |
+| 6   | [Embrace the power of generics to write flexible and reusable code in TypeScript](#embrace-the-power-of-generics-to-write-flexible-and-reusable-code-in-typeScript)                                                         | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-6.ts) |
+| 7   | [The power of generic interfaces to create adaptable and reusable data structures in TypeScript](#the-power-of-generic-interfaces-to-create-adaptable-and-resuable-data-structures-in-typescript)                           | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-7.ts) |
+| 8   | [Use JSDoc comments to document your code comprehensively](#use-jsdoc-comments-to-document-your-code-comprehensively)                                                                                                       | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-8.ts) |
 
 1. ### Type Annotations and Inference
 
@@ -227,4 +229,62 @@ Go to **[Coding Exercise](https://playcode.io/typescript)** for coding specific 
 
    const numberBox: Box<number> = { value: 42 }; // numberBox.value will be 42
    const stringBox: Box<string> = { value: 'Hello, TypeScript!' }; // stringBox.value will be 'Hello, TypeScript!'
+   ```
+
+7. ### The power of generic interfaces to create adaptable and reusable data structures in TypeScript.
+
+   ✅ **Creating a class**
+
+   ```ts
+   // Suppose you want to create a flexible repository for various types of data.
+
+   interface Repository<T> {
+     getById(id: number): T | undefined;
+     getAll(): T[];
+     create(item: T): void;
+     update(id: number, item: T): void;
+     delete(id: number): void;
+   }
+
+   // Usage:
+   class UserRepository implements Repository<User> {
+     // Implement methods here for User data
+
+     getById(id: number): User | undefined {
+       // Implementation
+     }
+
+     getAll(): User[] {
+       // Implementation
+     }
+
+     create(user: User): void {
+       // Implementation
+     }
+
+     update(id: number, user: User): void {
+       // Implementation
+     }
+
+     delete(id: number): void {
+       // Implementation
+     }
+   }
+   ```
+
+8. ### Use JSDoc comments to document your code comprehensively.
+
+   ✅ **JSDoc**
+
+   ```ts
+   /**
+    * Calculates the sum of two numbers.
+    * @param {number} a - The first number.
+    * @param {number} b - The second number.
+    * @returns {number} The sum of the two numbers.
+    */
+
+   function add(a: number, b: number): number {
+     return a + b;
+   }
    ```
