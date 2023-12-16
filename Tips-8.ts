@@ -1,5 +1,7 @@
 /**
  * ✅ Topic: Use JSDoc comments to document your code comprehensively
+ * 🧨 Importance: JSdoc comments are used to generate documentation for your code.
+ * It is a good practice to document your code so that other developers can easily understand it.
  */
 
 /**

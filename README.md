@@ -15,6 +15,7 @@ Go to **[Coding Exercise](https://playcode.io/typescript)** for coding specific 
 | 6   | [Embrace the power of generics to write flexible and reusable code in TypeScript](#embrace-the-power-of-generics-to-write-flexible-and-reusable-code-in-typeScript)                                                         | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-6.ts) |
 | 7   | [The power of generic interfaces to create adaptable and reusable data structures in TypeScript](#the-power-of-generic-interfaces-to-create-adaptable-and-resuable-data-structures-in-typescript)                           | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-7.ts) |
 | 8   | [Use JSDoc comments to document your code comprehensively](#use-jsdoc-comments-to-document-your-code-comprehensively)                                                                                                       | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-8.ts) |
+| 9   | [Destructuring can make your code more concise and easier to read](#destructuring-can-make-your-code-more-concise-and-easier-to-read)                                                                                       | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-9.ts) |
 
 1. ### Type Annotations and Inference
 
@@ -286,5 +287,27 @@ Go to **[Coding Exercise](https://playcode.io/typescript)** for coding specific 
 
    function add(a: number, b: number): number {
      return a + b;
+   }
+   ```
+
+9. ### Destructuring can make your code more concise and easier to read.
+
+   ✅ **Destructuring**
+
+   ```ts
+   /**
+    * ✅ Topic: Destructuring can make your code more concise and easier to read.
+    * 🧨 Importance: Destructuring is a convenient way of extracting multiple values
+    *       from data stored in (possibly nested) objects and Arrays.
+    */
+
+   // ❌ Bad Code
+   function printPersonDetails(person: { name: string; age: number }) {
+     console.log(`Name: ${person.name}, Age: ${person.age}`);
+   }
+
+   // ✅ Good Code
+   function printPersonDetails({ name, age }: { name: string; age: number }) {
+     console.log(`Name: ${name}, Age: ${age}`);
    }
    ```
