@@ -5,17 +5,18 @@ Go to **[Coding Exercise](https://playcode.io/typescript)** for coding specific 
 
 ### Table of Contents
 
-| No. | Tips                                                                                                                                                                                                                        | Code                                                                         |
-| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| 1   | [Type Annotations and Inference](#type-annotations-and-inference)                                                                                                                                                           | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-1.ts) |
-| 2   | [Take advantage of union types to create flexible and expressive code](#take-advantage-of-union-types-to-create-flexible-and-expressive-code)                                                                               | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-2.ts) |
-| 3   | [Use intersection types to combine multiple types into a single type](#use-intersection-types-to-combine-multiple-types-into-a-single-type)                                                                                 | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-3.ts) |
-| 4   | [Utilize the unknown type for variables with uncertain or dynamically determined values](#utilize-the-unknown-type-for-variables-with-uncertain-or-dynamically-determined-values)                                           | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-4.ts) |
-| 5   | [Leverage the 'keyof' operator to work with object keys as types and access object property names dynamically](#leverage-the-keyof-operator-to-work-with-object-keys-as-types-and-access-object-property-names-dynamically) | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-5.ts) |
-| 6   | [Embrace the power of generics to write flexible and reusable code in TypeScript](#embrace-the-power-of-generics-to-write-flexible-and-reusable-code-in-typeScript)                                                         | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-6.ts) |
-| 7   | [The power of generic interfaces to create adaptable and reusable data structures in TypeScript](#the-power-of-generic-interfaces-to-create-adaptable-and-resuable-data-structures-in-typescript)                           | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-7.ts) |
-| 8   | [Use JSDoc comments to document your code comprehensively](#use-jsdoc-comments-to-document-your-code-comprehensively)                                                                                                       | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-8.ts) |
-| 9   | [Destructuring can make your code more concise and easier to read](#destructuring-can-make-your-code-more-concise-and-easier-to-read)                                                                                       | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-9.ts) |
+| No. | Tips                                                                                                                                                                                                                        | Code                                                                          |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| 1   | [Type Annotations and Inference](#type-annotations-and-inference)                                                                                                                                                           | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-1.ts)  |
+| 2   | [Take advantage of union types to create flexible and expressive code](#take-advantage-of-union-types-to-create-flexible-and-expressive-code)                                                                               | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-2.ts)  |
+| 3   | [Use intersection types to combine multiple types into a single type](#use-intersection-types-to-combine-multiple-types-into-a-single-type)                                                                                 | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-3.ts)  |
+| 4   | [Utilize the unknown type for variables with uncertain or dynamically determined values](#utilize-the-unknown-type-for-variables-with-uncertain-or-dynamically-determined-values)                                           | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-4.ts)  |
+| 5   | [Leverage the 'keyof' operator to work with object keys as types and access object property names dynamically](#leverage-the-keyof-operator-to-work-with-object-keys-as-types-and-access-object-property-names-dynamically) | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-5.ts)  |
+| 6   | [Embrace the power of generics to write flexible and reusable code in TypeScript](#embrace-the-power-of-generics-to-write-flexible-and-reusable-code-in-typeScript)                                                         | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-6.ts)  |
+| 7   | [The power of generic interfaces to create adaptable and reusable data structures in TypeScript](#the-power-of-generic-interfaces-to-create-adaptable-and-resuable-data-structures-in-typescript)                           | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-7.ts)  |
+| 8   | [Use JSDoc comments to document your code comprehensively](#use-jsdoc-comments-to-document-your-code-comprehensively)                                                                                                       | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-8.ts)  |
+| 9   | [Destructuring can make your code more concise and easier to read](#destructuring-can-make-your-code-more-concise-and-easier-to-read)                                                                                       | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-9.ts)  |
+| 10  | [Use Awaited<Type> to extract the resolved type of a Promise in TypeScript](#use-awaitedtype-to-extract-the-resolved-type-of-a-promise-in-typescript)                                                                       | [Code](https://github.com/SujonHossain1/typescript-tips/blob/main/Tips-10.ts) |
 
 1. ### Type Annotations and Inference
 
@@ -311,3 +312,29 @@ Go to **[Coding Exercise](https://playcode.io/typescript)** for coding specific 
      console.log(`Name: ${name}, Age: ${age}`);
    }
    ```
+
+10. ### Use Awaited<Type> to extract the resolved type of a Promise in TypeScript
+
+✅ **Awaited<Type>**
+
+```ts
+// Example 1: Basic Usage
+async function fetchData(): Promise<string> {
+  return 'Data loaded successfully!';
+}
+
+const result: Awaited<ReturnType<typeof fetchData>> = await fetchData();
+console.log(result); // Output: Data loaded successfully!
+
+// Example 2: Using with async functions
+type AsyncFunction<T> = () => Promise<T>;
+
+const asyncFunction: AsyncFunction<number> = async () => {
+  return 42;
+};
+
+const asyncResult: Awaited<ReturnType<typeof asyncFunction>> =
+  await asyncFunction();
+
+console.log(asyncResult); // Output: 42
+```
